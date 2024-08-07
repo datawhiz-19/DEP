@@ -1,20 +1,5 @@
-def main():
-    import argparse
-    parser=argparse.ArgumentParser(description="Red-Blue Nim Game")
-    parser.add_argument("num-red", type=int, default=10, help="Number of red marbles")
-    parser.add_argument("num-blue", type=int, default=10, help="Number of blue marbles")
-    parser.add_argument("version", choices=["standard","misere"], default="standard", help="Game Version")
-    parser.add_argument("first_player", choices=["computer","human"], default="human", help="First Player")
-    parser.add_argument("depth", type=int, default=5, help="Search depth for AI")
 
-    arguments= parser.parse_args()
-    game= NimGame(arguments.num_red, arguments.num_blue, arguments.version, arguments.first_player, arguments.depth)
-    game.actual_game()
-
-if __name__ == "__main__":
-    main()
-
-
+    
 class NimGame:
     def __init__(self, num_red, num_blue, version, first_player, depth):
         self.num_red = num_red
@@ -135,7 +120,21 @@ class NimGame:
 
 
 
+def main():
+    import argparse 
+    parser=argparse.ArgumentParser(description="Red-Blue Nim Game")
+    parser.add_argument("--num-red", type=int, default=10, help="Number of red marbles")
+    parser.add_argument("--num-blue", type=int, default=10, help="Number of blue marbles")
+    parser.add_argument("--version", choices=["standard","misere"], default="standard", help="Game Version")
+    parser.add_argument("--first_player", choices=["computer","human"], default="human", help="First Player")
+    parser.add_argument("--depth", type=int, default=5, help="Search depth for AI")
 
+    arguments= parser.parse_args()
+    game= NimGame(arguments.num_red, arguments.num_blue, arguments.version, arguments.first_player, arguments.depth)
+    game.actual_game()
+
+if __name__ == "__main__":
+    main()
 
                        
 
