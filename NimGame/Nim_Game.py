@@ -9,7 +9,7 @@ def main():
 
     arguments= parser.parse_args()
     game= NimGame(arguments.num_red, arguments.num_blue, arguments.version, arguments.first_player, arguments.depth)
-    game.play_game()
+    game.actual_game()
 
 if __name__ == "__main__":
     main()
